@@ -1,0 +1,28 @@
+RewriteEngine On
+
+#This is for Page
+RewriteRule ^movies/([0-9]+) watchmovie.php?id=$1 [QSA,L]
+RewriteRule ^episodes/([0-9]+)-([0-9]+)-([0-9]+) watchep.php?id=$1&season=$2&episode=$3 [QSA,L]
+RewriteRule ^tv/([0-9]+) seasons.php?id=$1 [QSA,L]
+RewriteRule ^movies([^/\.]+)?$ movies.php [L]
+RewriteRule ^trending-movies([^/\.]+)?$ trending-movies.php [L]
+RewriteRule ^top-rated-movies([^/\.]+)?$ top-rated-movies.php [L]
+RewriteRule ^tv([^/\.]+)?$ tv.php [L]
+RewriteRule ^trending-tv([^/\.]+)?$ trending-tv.php [L]
+RewriteRule ^top-rated-tv([^/\.]+)?$ top-rated-tv.php [L]
+RewriteRule ^search/([^/\.]+)?$ search.php?keyword=$1 [L]
+RewriteRule ^ajax-search.html$ ajax-search.php [L]
+RewriteRule ^contactus([^/\.]+)?$ contactus.php [L]
+RewriteRule ^terms([^/\.]+)?$ terms.php [L]
+RewriteRule ^dmca([^/\.]+)?$ dmca.php [L]
+RewriteRule ^privacy([^/\.]+)?$ privacy.php [L]
+
+#This is for sitemaps
+RewriteRule ^sitemap_index\.xml$ sitemap_index.php [L]
+RewriteRule ^movies-sitemap([0-9]+)\.xml$ movies-sitemap1.php [L]
+RewriteRule ^tv-sitemap([0-9]+)\.xml$ tv-sitemap1.php [L]
+RewriteRule ^page-sitemap\.xml$ page-sitemap.php [L]
+RewriteRule ^sitemap.xml$ /sitemap_index.xml [R=301,L]
+
+#404 error page
+ErrorDocument 404 /404.php
